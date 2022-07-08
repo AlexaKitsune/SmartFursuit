@@ -22,7 +22,7 @@ String cer0 = "0";
 
 void loop(){
 
-///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// Bloque 1
+  ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// Bloque 1
   for(int i=0;i<=10;i++)
     { vectorIn[i]=digitalRead(i+2); }
   int j = 0;
@@ -34,13 +34,13 @@ void loop(){
     j++;
    }
 
-///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// Bloque 2
+  ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// Bloque 2
   if(Serial.available())
     { stringPi = Serial.readStringUntil('\n'); }  else { stringPi = "0000000000"; }
   for(int i=0; i<=10; i++)
     { stringComputer[i] = stringPi[i]; }
 
-///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// Bloque 3
+  ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// Bloque 3
   for(int i=0; i<10; i++){
     if(stringUser[i]==uno1[0] || stringComputer[i]==uno1[0])
       { UserComp[i] = uno1[0]; }
@@ -48,7 +48,7 @@ void loop(){
       { UserComp[i]=cer0[0]; }
   }
  
-///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// Bloque 4
+  ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// Bloque 4
   int dato = analogRead(A0); delay(40);
          if (dato > 691 && dato < 711) //1
     { analogic0="A"; }
@@ -73,7 +73,7 @@ void loop(){
   else                               //x
     { analogic0="x"; }
 
-///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// Bloque 5
+  ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// Bloque 5
   int Dec=0;
   int peso;
   int jj=9;

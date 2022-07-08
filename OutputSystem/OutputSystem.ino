@@ -8,7 +8,7 @@ LedControl lc=LedControl(12,/*11*/8,/*10*/7, NumMatrix); //Creamos una instancia
 
 void setup() {
   Serial.begin(9600);
-  for (int iml=0; iml< NumMatrix ; iml++){ //MatrizLED                                                                                //MatrizLED
+  for (int iml=0; iml< NumMatrix ; iml++){ //MatrizLED
     lc.shutdown(iml,false);    // Activar las matrices
     lc.setIntensity(iml,8);    // Poner el brillo a un valor intermedio 8 max 15
     lc.clearDisplay(iml);      // Y borrar todo
@@ -22,7 +22,7 @@ int inputButtons = 0000;
 char quickButtons = 'x';
 
 void loop() {
-//Leyendo puerto serial con los datos desde Atmega328p-pu (y almacenándola en inputSignal):
+  //Leyendo puerto serial con los datos desde Atmega328p-pu (y almacenándola en inputSignal):
   if(Serial.available()){
     inputSignal = Serial.readStringUntil('\n');
     delay(250);
@@ -32,21 +32,21 @@ void loop() {
     inputSignal = "x0000 z";
   }
 
-//Definimos inputButtons como el valor decimal del botón: Usar Serial.println(inputButtons); para ver resultado.
+  //Definimos inputButtons como el valor decimal del botón: Usar Serial.println(inputButtons); para ver resultado.
   primaryButtons[0] = inputSignal[1];
   primaryButtons[1] = inputSignal[2];
   primaryButtons[2] = inputSignal[3];
   primaryButtons[3] = inputSignal[4];
   inputButtons = primaryButtons.toInt();
 
-//Definimos quickButtons como tipo char, para poder ser usado por el switch: Usar Serial.println(quickButtons); para ver resultado.
+  //Definimos quickButtons como tipo char, para poder ser usado por el switch: Usar Serial.println(quickButtons); para ver resultado.
   quickButtons = inputSignal[0];
 
-//Acciones por defecto:
+  //Acciones por defecto:
   //ojos_normales();
 
 
-//Aquí comienza la programación de nuestros switch - cases:
+  //Aquí comienza la programación de nuestros switch - cases:
   switch(quickButtons){
     case 'A':
       Serial.println(quickButtons);
